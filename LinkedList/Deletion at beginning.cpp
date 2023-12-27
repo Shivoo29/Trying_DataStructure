@@ -1,4 +1,5 @@
-#include <iostream>                                                             //  Algorithm: Delete First Node in a Linked List
+#include <iostream>
+using namespace std;                                                            //  Algorithm: Delete First Node in a Linked List
 // Define the Node structure                                                    //  Input: Pointer to the head of the linked list            
 struct Node {                                                                   //   1. FUNCTION deleteFirstNode(head):
     int data;                                                                   //   2.     IF head is NULL
@@ -9,7 +10,7 @@ struct Node {                                                                   
 Node* createNode(int data) {                                                    //   7.     head = head.next
     Node* newNode = new Node;                                                   //   8.     FREE(temp)
     if (!newNode) {                                                             //   9.     RETURN
-        std::cout << "Memory error" << std::endl;                               //   10. FUNCTION displayList(head):
+        cout << "Memory error" << endl;                                         //   10. FUNCTION displayList(head):
         exit(1);                                                                //   11.    current = head
     }                                                                           //   12.    WHILE current is not NULL
     newNode->data = data;                                                       //   13.        PRINT current.data, " -> "
@@ -20,7 +21,7 @@ Node* createNode(int data) {                                                    
 // Function to delete the first node of the linked list                         //   18.    head = createNode(10)
 void deleteAtBeginning(Node*& head) {                                           //   19.    head.next = createNode(20)
     if (head == nullptr) {                                                      //   20.    head.next.next = createNode(30)
-        std::cout << "List is already empty." << std::endl;                     //   21.    PRINT "Original Linked List:"
+        cout << "List is already empty." << endl;                               //   21.    PRINT "Original Linked List:"
         return;                                                                 //   22.    CALL displayList(head)
     }                                                                           //   23.    CALL deleteFirstNode(head)
                                                                                 //   24.    PRINT "Linked List after deletion:"
@@ -33,10 +34,10 @@ void deleteAtBeginning(Node*& head) {                                           
 void displayList(Node* head) {
     Node* current = head;
     while (current != nullptr) {
-        std::cout << current->data << " -> ";
+        cout << current->data << " -> ";
         current = current->next;
     }
-    std::cout << "NULL" << std::endl;
+    cout << "NULL" << endl;
 }
 
 int main() {
@@ -44,12 +45,12 @@ int main() {
     head->next = createNode(20);
     head->next->next = createNode(30);
 
-    std::cout << "Original Linked List: ";
+    cout << "Original Linked List: ";
     displayList(head);
 
     deleteAtBeginning(head);
 
-    std::cout << "Linked List after deletion: ";
+    cout << "Linked List after deletion: ";
     displayList(head);
 
     // Free the remaining allocated memory (for completeness)
